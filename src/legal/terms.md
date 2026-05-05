@@ -1,4 +1,4 @@
-These Terms of Service (the "Terms") govern your use of willow.tech (the "Site"), operated by Willow Labs ("Willow", "we", "us"). By accessing or using the Site, you agree to these Terms.
+These Terms of Service (the "Terms") govern your use of willow.tech (the "Site"), operated by Willow Core, Inc. ("Willow", "we", "us"). By accessing or using the Site, you agree to these Terms.
 
 ## Use of the Site
 
@@ -10,9 +10,9 @@ The Site is provided for informational purposes. We make a good-faith effort to 
 
 ## Intellectual property
 
-All content on the Site — text, graphics, logos, code, design — is owned by Willow Labs or its licensors and is protected by copyright, trademark, and other applicable laws. You may not reproduce, distribute, modify, or create derivative works from this content without prior written permission, except as permitted by fair use.
+All content on the Site — text, graphics, logos, code, design — is owned by Willow Core, Inc. or its licensors and is protected by copyright, trademark, and other applicable laws. You may not reproduce, distribute, modify, or create derivative works from this content without prior written permission, except as permitted by fair use.
 
-The "Willow" name and logo are trademarks of Willow Labs.
+The "Willow" name and logo are trademarks of Willow Core, Inc..
 
 ## Forward-looking statements
 
@@ -24,11 +24,11 @@ The Site links to and integrates with third-party services (including the Willow
 
 ## Limitation of liability
 
-To the maximum extent permitted by applicable law, Willow Labs and its affiliates, officers, employees, and agents will not be liable for indirect, incidental, special, consequential, or punitive damages arising from your use of the Site, including loss of profits, data, or goodwill, even if advised of the possibility of such damages.
+To the maximum extent permitted by applicable law, Willow Core, Inc. and its affiliates, officers, employees, and agents will not be liable for indirect, incidental, special, consequential, or punitive damages arising from your use of the Site, including loss of profits, data, or goodwill, even if advised of the possibility of such damages.
 
 ## Indemnification
 
-You agree to indemnify and hold harmless Willow Labs and its affiliates from any claims, losses, or expenses arising from your misuse of the Site or violation of these Terms.
+You agree to indemnify and hold harmless Willow Core, Inc. and its affiliates from any claims, losses, or expenses arising from your misuse of the Site or violation of these Terms.
 
 ## Changes to these Terms
 

@@ -1,4 +1,4 @@
-This Privacy Policy describes how Willow Labs ("Willow", "we", "us") handles information collected when you visit willow.tech or interact with the services available through it.
+This Privacy Policy describes how Willow Core, Inc. ("Willow", "we", "us") handles information collected when you visit willow.tech or interact with the services available through it.
 
 ## What we collect
 
