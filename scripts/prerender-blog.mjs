@@ -118,6 +118,21 @@ function renderPostHtml(post) {
     /<meta\s+name="twitter:image"\s+content="[^"]*"\s*\/>/,
     `<meta name="twitter:image" content="${ogImage}" />`,
   );
+  html = replaceTag(
+    html,
+    /<meta\s+name="twitter:title"\s+content="[^"]*"\s*\/>/,
+    `<meta name="twitter:title" content="${titleAttr}" />`,
+  );
+  html = replaceTag(
+    html,
+    /<meta\s+name="twitter:description"\s+content="[^"]*"\s*\/>/,
+    `<meta name="twitter:description" content="${description}" />`,
+  );
+  html = replaceTag(
+    html,
+    /<meta\s+name="twitter:url"\s+content="[^"]*"\s*\/>/,
+    `<meta name="twitter:url" content="${url}" />`,
+  );
 
   // Inject article schema for richer search snippets
   const articleSchema = `<script type="application/ld+json">${JSON.stringify({
