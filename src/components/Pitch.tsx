@@ -10,7 +10,7 @@ export default function Pitch() {
           <div>
             <span className="eyebrow">What we're building</span>
             <h2 className="pitch-headline">
-              An L1 where every byte comes with{' '}
+              Every byte comes with{' '}
               <em>a proof</em>.
             </h2>
           </div>
@@ -22,8 +22,8 @@ export default function Pitch() {
               files served from a CDN tell you nothing about provenance.
             </p>
             <p>
-              <strong>Willow makes verification first-class.</strong> A
-              hub-and-spoke L1 ships with native blockchain indexing,
+              <strong>Willow makes verification first-class.</strong> One
+              hub-and-spoke protocol ships with native blockchain indexing,
               structured-data storage, and file storage — and every read
               returns a cryptographic proof that travels with the data.
             </p>

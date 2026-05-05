@@ -15,9 +15,8 @@ export default function Hero() {
           Data you can <em>prove</em>.
         </h1>
         <p className="hero-sub">
-          Willow is a purpose-built L1 for indexing blockchain data, storing
-          structured records, and serving files — every step backed by a
-          cryptographic proof.
+          Index any chain. Store any record. Serve any file. Every step
+          backed by a cryptographic proof.
         </p>
         <div className="hero-ctas">
           <a
@@ -35,7 +34,7 @@ export default function Hero() {
           </a>
         </div>
         <div className="hero-meta" aria-hidden="true">
-          <span>Hub-and-spoke L1</span>
+          <span>Hub-and-spoke architecture</span>
           <span>Proofs at every step</span>
           <span>Live on devnet</span>
         </div>

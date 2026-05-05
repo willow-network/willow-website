@@ -1,12 +1,14 @@
 import type { CSSProperties } from 'react';
 
 type Props = {
+  /** Height of the icon (and approx wordmark height). */
   size?: number;
   /** Render the wordmark "willow" next to the icon. */
   withWordmark?: boolean;
-  /** Force the icon and wordmark colors (otherwise inherit currentColor). */
+  /** Color of the icon (defaults to currentColor). */
   iconColor?: string;
-  wordmarkColor?: string;
+  /** Use the white wordmark variant — for use on dark backgrounds. */
+  variant?: 'dark' | 'light';
   className?: string;
   style?: CSSProperties;
   ariaLabel?: string;
@@ -16,11 +18,20 @@ export default function Logo({
   size = 32,
   withWordmark = true,
   iconColor,
-  wordmarkColor,
+  variant = 'dark',
   className,
   style,
   ariaLabel = 'Willow',
 }: Props) {
+  // Wordmark PNG aspect ratio is 685 / 189 = 3.624 (tight-cropped from the
+  // original logo). Height ratio 0.508 matches the original logo file exactly.
+  const wordmarkSrc =
+    variant === 'light'
+      ? '/willow-wordmark-white.png'
+      : '/willow-wordmark.png';
+  const wordmarkHeight = Math.round(size * 0.508);
+  const wordmarkWidth = Math.round(wordmarkHeight * (685 / 189));
+
   return (
     <span
       className={`brand-logo${className ? ' ' + className : ''}`}
@@ -30,16 +41,14 @@ export default function Logo({
     >
       <WillowMark size={size} color={iconColor} />
       {withWordmark && (
-        <span
-          className="brand-wordmark"
-          style={{
-            color: wordmarkColor,
-            fontSize: `${size * 0.78}px`,
-            lineHeight: 1,
-          }}
-        >
-          willow
-        </span>
+        <img
+          src={wordmarkSrc}
+          alt=""
+          width={wordmarkWidth}
+          height={wordmarkHeight}
+          className="brand-wordmark-img"
+          aria-hidden="true"
+        />
       )}
     </span>
   );

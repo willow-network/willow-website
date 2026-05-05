@@ -10,10 +10,10 @@ export default function Footer() {
       <div className="container">
         <div className="footer-top">
           <div className="footer-brand">
-            <Logo size={32} />
+            <Logo size={28} variant="light" />
             <p>
-              The L1 for verifiable data. Indexing, structured records, and
-              file storage — every step backed by a cryptographic proof.
+              Verifiable data infrastructure. Indexing, structured records,
+              and file storage — every step backed by a cryptographic proof.
             </p>
             <div className="footer-socials">
               <a
@@ -106,7 +106,7 @@ export default function Footer() {
         <div className="footer-bottom">
           <span>© {year} Willow. All rights reserved.</span>
           <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.78rem' }}>
-            Built on a verifiable L1.
+            Verifiable by design.
           </span>
         </div>
       </div>

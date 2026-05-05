@@ -12,5 +12,5 @@ export const LINKS = {
   emailDashboard:
     'mailto:info@willow.tech?subject=Custom%20dashboard%20inquiry%20%E2%80%94%20Willow',
   github: 'https://github.com/willow-network',
-  twitter: 'https://x.com/willow_network',
+  twitter: 'https://x.com/willow_protocol',
 } as const;

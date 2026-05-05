@@ -17,7 +17,7 @@ export default function Nav() {
     <header className={`nav${scrolled ? ' nav--scrolled' : ''}`}>
       <div className="container nav-inner">
         <a href="#top" className="nav-brand" aria-label="Willow home">
-          <Logo size={32} />
+          <Logo size={28} />
         </a>
         <nav className="nav-links" aria-label="Primary">
           <a href="#what" className="nav-link">What it is</a>

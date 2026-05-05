@@ -1,6 +1,6 @@
 # willow-website
 
-Marketing site for [Willow](https://willow.tech) — the L1 for verifiable data.
+Marketing site for [Willow](https://willow.tech) — verifiable data infrastructure.
 
 Single-page Vite + React + TypeScript site. Light theme, willow-green accent, minimal-by-design.
 

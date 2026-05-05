@@ -30,7 +30,7 @@ export default function Spokes() {
       <div className="container">
         <span className="eyebrow">Three first-class spokes</span>
         <h2 className="section-title">
-          One L1, every kind of data — all provable.
+          One protocol, every kind of data — all provable.
         </h2>
         <p className="section-lead">
           Storage and verification aren't bolt-on services. They're built into

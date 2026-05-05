@@ -308,14 +308,17 @@ button {
 .brand-logo {
   display: inline-flex;
   align-items: center;
-  gap: 0.55rem;
+  gap: 0.5rem;
 }
 
-.brand-wordmark {
-  font-family: var(--font-sans);
-  font-weight: 600;
-  letter-spacing: -0.02em;
-  color: var(--text);
+/* width/height are set via the HTML attributes from the React component;
+   no CSS override here so they're respected. translateY shifts the wordmark
+   up slightly so its optical center (mass of the lowercase x-height letters)
+   aligns with the icon's geometric center, instead of letting flexbox center
+   the bounding box (which includes the small 'i' dot above the text). */
+.brand-wordmark-img {
+  display: block;
+  transform: translateY(-10%);
 }
 
 .nav-links {
@@ -978,10 +981,6 @@ button {
 
 .footer-brand .brand-logo {
   margin-bottom: 1.25rem;
-}
-
-.footer-brand .brand-wordmark {
-  color: var(--text-on-deep);
 }
 
 .footer-brand p {
