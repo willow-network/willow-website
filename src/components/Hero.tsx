@@ -9,7 +9,7 @@ export default function Hero() {
       <div className="container hero-inner">
         <span className="hero-badge">
           <span className="dot" aria-hidden="true" />
-          Pre-seed open · Seed round opening soon
+          Now in early access
         </span>
         <h1>
           Data you can <em>prove</em>.

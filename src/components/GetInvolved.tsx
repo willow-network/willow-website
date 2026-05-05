@@ -46,12 +46,12 @@ export default function GetInvolved() {
           </article>
 
           <article className="pillar">
-            <span className="pillar-tag">Investors & Partners</span>
+            <span className="pillar-tag">Partners</span>
             <h3>Book a call</h3>
             <p>
-              Closing pre-seed and opening seed shortly. We're also actively
-              partnering with protocols that want verified dashboards or
-              custom indexing on Willow.
+              Working with protocols and teams that want verified
+              dashboards, custom indexing, or dedicated infrastructure on
+              Willow. Bring your data, we'll help you ship.
             </p>
             <a href={LINKS.calendly} target="_blank" rel="noreferrer">
               Book a call

@@ -68,12 +68,12 @@ export default function Footer() {
             <h4>Company</h4>
             <ul>
               <li>
-                <a href={LINKS.calendly} target="_blank" rel="noreferrer">
-                  Investors
-                </a>
+                <a href={LINKS.emailPartners}>Partners</a>
               </li>
               <li>
-                <a href={LINKS.emailPartners}>Partners</a>
+                <a href={LINKS.calendly} target="_blank" rel="noreferrer">
+                  Book a call
+                </a>
               </li>
               <li>
                 <a href={LINKS.emailHref}>{LINKS.email}</a>

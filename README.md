@@ -31,7 +31,7 @@ src/
     Spokes.tsx       three capability cards (indexing / data / files)
     UseCases.tsx     three-column use-case grid
     Showcase.tsx     YieldNest partner spotlight + custom dashboard CTA
-    GetInvolved.tsx  three CTAs: Builders / Community / Investors+Partners
+    GetInvolved.tsx  three CTAs: Builders / Community / Partners
     Footer.tsx       brand + links + socials
     Icons.tsx        small inline SVG icon set
 public/

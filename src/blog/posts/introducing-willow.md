@@ -51,9 +51,8 @@ A few priorities over the next few months:
 - Wider chain coverage on the indexer
 - A managed offering so teams can ship without operating their own nodes
 - More partner deployments like YieldNest, on dedicated subdomains
-- Closing our seed round
 
-We've been operating quietly through pre-seed. Today is when we start telling people.
+We've been heads-down for a while. Today is when we start telling people.
 
 ## Get involved
 
@@ -63,7 +62,7 @@ Three doors, depending on where you fit:
 
 **Community** — join us in [Discord](https://discord.gg/BrrA56x24f). Early users, contributors, and partners hang out there. Ask questions, share what you're building, get direct access to the team.
 
-**Investors and partners** — we're closing pre-seed and opening seed. We're also actively partnering with protocols that want verified dashboards or custom indexing on Willow. [Book a call](https://calendly.com/deluciapaul) or email us at [info@willow.tech](mailto:info@willow.tech).
+**Partners** — we work with protocols and teams that want verified dashboards, custom indexing, or dedicated infrastructure on Willow. Bring the data you care about; we'll help you ship. [Book a call](https://calendly.com/deluciapaul) or email us at [info@willow.tech](mailto:info@willow.tech).
 
 ---
 
