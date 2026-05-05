@@ -107,12 +107,11 @@ export default function Footer() {
         <div className="footer-bottom">
           <div className="footer-bottom-meta">
             <span>© {year} Willow. All rights reserved.</span>
-            <span className="footer-tagline">Verifiable by design.</span>
-          </div>
-          <div className="footer-legal">
+            <span className="footer-bottom-sep" aria-hidden="true">·</span>
             <Link to="/privacy">Privacy</Link>
             <Link to="/terms">Terms</Link>
           </div>
+          <span className="footer-tagline">Verifiable by design.</span>
         </div>
       </div>
     </footer>
