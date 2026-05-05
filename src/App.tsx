@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom';
 import Footer from './components/Footer';
 import Landing from './components/Landing';
 import Nav from './components/Nav';
+import NewsletterCta from './components/NewsletterCta';
 import NotFound from './components/NotFound';
 
 // Lazy-load blog routes — keeps react-markdown out of the homepage bundle.
@@ -43,6 +44,7 @@ export default function App() {
           </Routes>
         </Suspense>
       </main>
+      <NewsletterCta />
       <Footer />
     </BrowserRouter>
   );
