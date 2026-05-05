@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { LINKS } from '../lib/links';
 import { IconDiscord, IconGithub, IconX } from './Icons';
 import Logo from './Logo';
@@ -105,9 +106,11 @@ export default function Footer() {
 
         <div className="footer-bottom">
           <span>© {year} Willow. All rights reserved.</span>
-          <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.78rem' }}>
-            Verifiable by design.
-          </span>
+          <div className="footer-legal">
+            <Link to="/privacy">Privacy</Link>
+            <Link to="/terms">Terms</Link>
+            <span className="footer-tagline">Verifiable by design.</span>
+          </div>
         </div>
       </div>
     </footer>
