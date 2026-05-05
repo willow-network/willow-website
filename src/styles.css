@@ -1548,7 +1548,19 @@ button {
   color: var(--text-subtle);
 }
 
-/* Footer bottom — legal links + tagline */
+/* Footer bottom — copyright + tagline (left), legal links (right) */
+.footer-bottom-meta {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.footer-tagline {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+}
+
 .footer-legal {
   display: flex;
   align-items: center;
@@ -1564,11 +1576,6 @@ button {
 
 .footer-legal a:hover {
   color: var(--text-on-deep);
-}
-
-.footer-tagline {
-  font-family: var(--font-mono);
-  font-size: 0.78rem;
 }
 
 /* ============================================================
