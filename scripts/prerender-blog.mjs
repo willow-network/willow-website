@@ -6,7 +6,7 @@
  *
  * Source of truth for post metadata: src/blog/posts.json
  */
-import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
+import { readFileSync, writeFileSync, mkdirSync, readdirSync } from 'node:fs';
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -16,6 +16,42 @@ const SITE_URL = 'https://willow.tech';
 const posts = JSON.parse(
   readFileSync(resolve(ROOT, 'src/blog/posts.json'), 'utf8'),
 );
+
+// --- inject font preloads --------------------------------------------------
+// @fontsource bundles a woff2 per (family, subset, weight, style). For English
+// text the browser only fetches the "latin" subset, but it doesn't *know* it
+// needs them until CSS is parsed. Preloading the critical files makes them
+// fetch in parallel with HTML/CSS so they're available on first paint.
+{
+  const assetsDir = resolve(ROOT, 'dist/assets');
+  const files = readdirSync(assetsDir);
+  const find = (pattern) => {
+    const match = files.find((f) => pattern.test(f));
+    return match ? `/assets/${match}` : null;
+  };
+  const criticalFonts = [
+    find(/^inter-latin-400-normal-.*\.woff2$/),
+    find(/^inter-latin-600-normal-.*\.woff2$/),
+    find(/^instrument-serif-latin-400-normal-.*\.woff2$/),
+    find(/^instrument-serif-latin-400-italic-.*\.woff2$/),
+  ].filter(Boolean);
+
+  const preloadTags = criticalFonts
+    .map(
+      (href) =>
+        `    <link rel="preload" href="${href}" as="font" type="font/woff2" crossorigin="anonymous" />`,
+    )
+    .join('\n');
+
+  const indexPath = resolve(ROOT, 'dist/index.html');
+  let html = readFileSync(indexPath, 'utf8');
+  if (!html.includes('rel="preload"') && preloadTags) {
+    html = html.replace('</head>', `${preloadTags}\n  </head>`);
+    writeFileSync(indexPath, html);
+    console.log(`✓ injected ${criticalFonts.length} font preloads`);
+  }
+}
+
 const indexHtml = readFileSync(resolve(ROOT, 'dist/index.html'), 'utf8');
 
 function escapeAttr(s) {
