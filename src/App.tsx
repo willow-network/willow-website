@@ -1,10 +1,13 @@
-import { useEffect } from 'react';
+import { lazy, Suspense, useEffect } from 'react';
 import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom';
-import BlogIndex from './components/BlogIndex';
-import BlogPost from './components/BlogPost';
 import Footer from './components/Footer';
 import Landing from './components/Landing';
 import Nav from './components/Nav';
+import NotFound from './components/NotFound';
+
+// Lazy-load blog routes — keeps react-markdown out of the homepage bundle.
+const BlogIndex = lazy(() => import('./components/BlogIndex'));
+const BlogPost = lazy(() => import('./components/BlogPost'));
 
 /** Scrolls to top on route change, or to the hash anchor if one is present. */
 function ScrollManager() {
@@ -31,12 +34,14 @@ export default function App() {
       <ScrollManager />
       <Nav />
       <main>
-        <Routes>
-          <Route path="/" element={<Landing />} />
-          <Route path="/blog" element={<BlogIndex />} />
-          <Route path="/blog/:slug" element={<BlogPost />} />
-          <Route path="*" element={<Landing />} />
-        </Routes>
+        <Suspense fallback={<div style={{ minHeight: '60vh' }} />}>
+          <Routes>
+            <Route path="/" element={<Landing />} />
+            <Route path="/blog" element={<BlogIndex />} />
+            <Route path="/blog/:slug" element={<BlogPost />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </Suspense>
       </main>
       <Footer />
     </BrowserRouter>

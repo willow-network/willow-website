@@ -8,11 +8,6 @@ export default function BlogIndex() {
       <div className="container blog-container">
         <header className="blog-header">
           <span className="eyebrow">Blog</span>
-          <h1 className="blog-title">Notes from the Willow team.</h1>
-          <p className="blog-lead">
-            Thinking out loud about verifiable data, indexing, and what we're
-            building. Updated whenever we have something worth saying.
-          </p>
         </header>
 
         <ul className="post-list">

@@ -40,10 +40,10 @@ export default function Nav() {
           <Logo size={28} />
         </Link>
         <nav className="nav-links" aria-label="Primary">
-          <a href={sectionHref('what')} className="nav-link">What it is</a>
-          <a href={sectionHref('pillars')} className="nav-link">Capabilities</a>
-          <a href={sectionHref('showcase')} className="nav-link">Showcase</a>
-          <a href={sectionHref('get-involved')} className="nav-link">Get involved</a>
+          <a href={sectionHref('what')} className="nav-link nav-link--section">What it is</a>
+          <a href={sectionHref('pillars')} className="nav-link nav-link--section">Capabilities</a>
+          <a href={sectionHref('showcase')} className="nav-link nav-link--section">Showcase</a>
+          <a href={sectionHref('get-involved')} className="nav-link nav-link--section">Get involved</a>
           <Link to="/blog" className="nav-link">Blog</Link>
           <a
             href={LINKS.explorer}

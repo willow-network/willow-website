@@ -131,3 +131,38 @@ writeFileSync(resolve(blogIndexDir, 'index.html'), blogIndexHtml);
 console.log(`  prerendered: blog/index.html`);
 
 console.log(`✓ prerender done (${count} post${count === 1 ? '' : 's'})`);
+
+// --- sitemap.xml -----------------------------------------------------------
+
+const today = new Date().toISOString().slice(0, 10);
+const urls = [
+  { loc: SITE_URL + '/', changefreq: 'monthly', priority: '1.0', lastmod: today },
+  { loc: SITE_URL + '/blog', changefreq: 'weekly', priority: '0.8', lastmod: today },
+  ...posts.map((p) => ({
+    loc: `${SITE_URL}/blog/${p.slug}`,
+    changefreq: 'monthly',
+    priority: '0.7',
+    lastmod: p.date,
+  })),
+];
+
+const sitemap = [
+  '<?xml version="1.0" encoding="UTF-8"?>',
+  '<urlset xmlns="http://www.sitemap.org/schemas/sitemap/0.9">'.replace(
+    'sitemap.org',
+    'sitemaps.org',
+  ),
+  ...urls.map(
+    (u) =>
+      `  <url>\n` +
+      `    <loc>${u.loc}</loc>\n` +
+      `    <lastmod>${u.lastmod}</lastmod>\n` +
+      `    <changefreq>${u.changefreq}</changefreq>\n` +
+      `    <priority>${u.priority}</priority>\n` +
+      `  </url>`,
+  ),
+  '</urlset>',
+].join('\n');
+
+writeFileSync(resolve(ROOT, 'dist/sitemap.xml'), sitemap);
+console.log(`✓ sitemap.xml (${urls.length} urls)`);
