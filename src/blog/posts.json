@@ -1,0 +1,11 @@
+[
+  {
+    "slug": "introducing-willow",
+    "title": "Introducing Willow",
+    "subtitle": "Verifiable data infrastructure",
+    "date": "2026-05-05",
+    "author": "The Willow team",
+    "excerpt": "Most of the data your apps consume is unverifiable. Today we're introducing Willow — a new protocol that indexes blockchain data, stores structured records, and serves files, where every read returns a cryptographic proof.",
+    "ogImage": "/og-introducing-willow.png"
+  }
+]

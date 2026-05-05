@@ -29,6 +29,15 @@ export function ArrowUpRight(props: SVGProps<SVGSVGElement>) {
   );
 }
 
+export function ArrowLeft(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg {...base} className="arrow" {...props}>
+      <path d="M19 12H5" />
+      <path d="m11 18-6-6 6-6" />
+    </svg>
+  );
+}
+
 export function IconIndex(props: SVGProps<SVGSVGElement>) {
   return (
     <svg {...base} width={22} height={22} {...props}>

@@ -54,35 +54,22 @@ export default function Showcase() {
               </a>
             </div>
           </div>
-          <div className="showcase-visual" aria-hidden="true">
-            <div className="showcase-mock">
-              <div className="showcase-mock-bar">
-                <span /><span /><span />
-              </div>
-              <div className="showcase-mock-row head">
-                <span>VAULT</span>
-                <span>TVL</span>
-                <span>APY</span>
-              </div>
-              <div className="showcase-mock-row">
-                <span>ynETH</span>
-                <span>$184.2M</span>
-                <span>3.42%</span>
-              </div>
-              <div className="showcase-mock-row">
-                <span>ynLSDe</span>
-                <span>$92.7M</span>
-                <span>4.18%</span>
-              </div>
-              <div className="showcase-mock-row">
-                <span>ynBNB</span>
-                <span>$54.3M</span>
-                <span>2.91%</span>
-              </div>
-              <div className="showcase-mock-chart" />
-            </div>
+          <a
+            href={LINKS.yieldnest}
+            target="_blank"
+            rel="noreferrer"
+            className="showcase-visual"
+            aria-label="Visit yieldnest.willow.tech"
+          >
+            <img
+              src="/yieldnest-screenshot.jpg"
+              alt="The YieldNest dashboard at yieldnest.willow.tech, showing live indexing stats, registered subgroves, and an entity-share donut chart — all backed by Willow proofs."
+              loading="lazy"
+              width={1440}
+              height={900}
+            />
             <span className="showcase-stamp">Willow verified</span>
-          </div>
+          </a>
         </div>
       </div>
     </section>
