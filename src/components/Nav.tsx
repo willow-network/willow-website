@@ -21,9 +21,15 @@ export default function Nav() {
 
   // When already on the home page, the brand link doesn't change the route,
   // so the ScrollManager doesn't fire — handle the scroll-to-top manually.
+  // Also clear any leftover hash (e.g. /#pillars) so the URL bar is clean.
+  // Using history.replaceState rather than navigate() avoids racing with
+  // ScrollManager, which would otherwise instant-scroll on its own.
   const handleBrandClick = (e: MouseEvent<HTMLAnchorElement>) => {
     if (onHome) {
       e.preventDefault();
+      if (window.location.hash) {
+        window.history.replaceState(null, '', window.location.pathname);
+      }
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   };
