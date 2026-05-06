@@ -341,6 +341,15 @@ button {
   background: var(--surface);
 }
 
+.nav-link.is-active {
+  color: var(--accent);
+}
+
+.nav-link.is-active:hover {
+  color: var(--accent-hover);
+  background: var(--accent-soft);
+}
+
 .nav-cta {
   margin-left: 0.5rem;
 }
