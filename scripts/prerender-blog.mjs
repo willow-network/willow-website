@@ -195,6 +195,8 @@ const urls = [
     priority: '0.7',
     lastmod: p.date,
   })),
+  { loc: SITE_URL + '/team', changefreq: 'monthly', priority: '0.6', lastmod: today },
+  { loc: SITE_URL + '/faq', changefreq: 'monthly', priority: '0.6', lastmod: today },
   { loc: SITE_URL + '/privacy', changefreq: 'yearly', priority: '0.3', lastmod: today },
   { loc: SITE_URL + '/terms', changefreq: 'yearly', priority: '0.3', lastmod: today },
 ];

@@ -69,6 +69,12 @@ export default function Footer() {
             <h4>Company</h4>
             <ul>
               <li>
+                <Link to="/team">Team</Link>
+              </li>
+              <li>
+                <Link to="/faq">FAQ</Link>
+              </li>
+              <li>
                 <a href={LINKS.emailPartners}>Partners</a>
               </li>
               <li>

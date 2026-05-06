@@ -1486,6 +1486,294 @@ button {
 }
 
 /* ============================================================
+   Team page
+   ============================================================ */
+
+.team-section {
+  padding-top: clamp(2rem, 4vw, 2.75rem);
+  padding-bottom: clamp(4rem, 8vw, 6rem);
+}
+
+.team-container {
+  max-width: 880px;
+}
+
+.team-header {
+  margin-bottom: clamp(2.5rem, 5vw, 3.5rem);
+}
+
+.team-title {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(2.4rem, 5vw, 3.4rem);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  margin: 0 0 0.75rem;
+}
+
+.team-lead {
+  font-size: clamp(1.05rem, 1.4vw, 1.18rem);
+  color: var(--text-muted);
+  max-width: 56ch;
+  margin: 0;
+  line-height: 1.55;
+}
+
+.team-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.team-card {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: 1.75rem;
+  align-items: start;
+  padding-block: 1.5rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.team-card:first-child {
+  padding-top: 0;
+}
+
+.team-card:last-child {
+  border-bottom: none;
+}
+
+.team-photo {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  background: var(--accent-soft);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.team-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.team-photo-initials {
+  font-family: var(--font-display);
+  font-size: 3rem;
+  font-weight: 400;
+  color: var(--accent-strong);
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+
+.team-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  padding-top: 0.5rem;
+}
+
+.team-name {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 1.55rem;
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+  margin: 0;
+  color: var(--text);
+}
+
+.team-role {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0;
+}
+
+.team-bio {
+  font-size: 1rem;
+  line-height: 1.55;
+  color: var(--text-muted);
+  margin: 0.4rem 0 0;
+  max-width: 60ch;
+}
+
+@media (max-width: 600px) {
+  .team-card {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    text-align: left;
+  }
+  .team-photo {
+    width: 96px;
+    height: 96px;
+  }
+  .team-photo-initials {
+    font-size: 2rem;
+  }
+  .team-meta {
+    padding-top: 0;
+  }
+}
+
+/* ============================================================
+   FAQ page
+   ============================================================ */
+
+.faq-section {
+  padding-top: clamp(2rem, 4vw, 2.75rem);
+  padding-bottom: clamp(4rem, 8vw, 6rem);
+}
+
+.faq-container {
+  max-width: 760px;
+}
+
+.faq-header {
+  margin-bottom: clamp(2.5rem, 5vw, 3.5rem);
+}
+
+.faq-title {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(2.4rem, 5vw, 3.4rem);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  margin: 0 0 0.75rem;
+}
+
+.faq-lead {
+  font-size: clamp(1.05rem, 1.4vw, 1.18rem);
+  color: var(--text-muted);
+  margin: 0;
+  line-height: 1.55;
+}
+
+.faq-lead a {
+  color: var(--accent);
+  border-bottom: 1px solid color-mix(in srgb, var(--accent) 35%, transparent);
+}
+
+.faq-lead a:hover {
+  color: var(--accent-hover);
+  border-bottom-color: var(--accent);
+}
+
+.faq-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border-top: 1px solid var(--border);
+}
+
+.faq-item {
+  border-bottom: 1px solid var(--border);
+}
+
+.faq-item details {
+  padding-block: 1.25rem;
+}
+
+.faq-item summary {
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  outline: none;
+}
+
+.faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq-q {
+  font-family: var(--font-sans);
+  font-size: 1.08rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--text);
+}
+
+.faq-toggle {
+  flex-shrink: 0;
+  position: relative;
+  width: 18px;
+  height: 18px;
+}
+
+.faq-toggle::before,
+.faq-toggle::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background: var(--text-muted);
+  transform: translate(-50%, -50%);
+  transition: transform 0.2s var(--easing), opacity 0.2s var(--easing);
+}
+
+.faq-toggle::before {
+  width: 14px;
+  height: 1.5px;
+}
+
+.faq-toggle::after {
+  width: 1.5px;
+  height: 14px;
+}
+
+.faq-item details[open] .faq-toggle::after {
+  transform: translate(-50%, -50%) rotate(90deg);
+  opacity: 0;
+}
+
+.faq-item summary:hover .faq-q {
+  color: var(--accent);
+}
+
+.faq-item summary:hover .faq-toggle::before,
+.faq-item summary:hover .faq-toggle::after {
+  background: var(--accent);
+}
+
+.faq-a {
+  margin-top: 0.85rem;
+  font-size: 0.98rem;
+  line-height: 1.65;
+  color: var(--text-muted);
+  max-width: 64ch;
+}
+
+.faq-a > * {
+  margin: 0;
+}
+
+.faq-a > * + * {
+  margin-top: 0.85rem;
+}
+
+.faq-a a {
+  color: var(--accent);
+  border-bottom: 1px solid color-mix(in srgb, var(--accent) 35%, transparent);
+  transition: color 0.15s var(--easing), border-color 0.15s var(--easing);
+}
+
+.faq-a a:hover {
+  color: var(--accent-hover);
+  border-bottom-color: var(--accent);
+}
+
+/* ============================================================
    Legal pages (Privacy, Terms)
    ============================================================ */
 

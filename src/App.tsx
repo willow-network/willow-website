@@ -6,10 +6,12 @@ import Nav from './components/Nav';
 import NewsletterCta from './components/NewsletterCta';
 import NotFound from './components/NotFound';
 
-// Lazy-load blog and legal routes — keeps react-markdown out of the homepage bundle.
+// Lazy-load secondary routes so the homepage bundle stays lean.
 const BlogIndex = lazy(() => import('./components/BlogIndex'));
 const BlogPost = lazy(() => import('./components/BlogPost'));
 const LegalPage = lazy(() => import('./components/LegalPage'));
+const TeamPage = lazy(() => import('./components/TeamPage'));
+const FAQPage = lazy(() => import('./components/FAQPage'));
 
 /** Scrolls to top on route change, or to the hash anchor if one is present. */
 function ScrollManager() {
@@ -41,6 +43,8 @@ export default function App() {
             <Route path="/" element={<Landing />} />
             <Route path="/blog" element={<BlogIndex />} />
             <Route path="/blog/:slug" element={<BlogPost />} />
+            <Route path="/team" element={<TeamPage />} />
+            <Route path="/faq" element={<FAQPage />} />
             <Route path="/privacy" element={<LegalPage slug="privacy" />} />
             <Route path="/terms" element={<LegalPage slug="terms" />} />
             <Route path="*" element={<NotFound />} />
