@@ -13,21 +13,29 @@ export default function BlogIndex() {
         <ul className="post-list">
           {POSTS.map((post) => (
             <li key={post.slug} className="post-list-item">
-              <Link to={`/blog/${post.slug}`} className="post-list-link">
-                <div className="post-list-meta">
-                  <time dateTime={post.date}>{formatDate(post.date)}</time>
-                  <span aria-hidden="true">·</span>
-                  <span>{readingTimeMinutes(post.content)} min read</span>
+              <Link to={`/blog/${post.slug}`} className="post-card">
+                <div className="post-card-image">
+                  <img
+                    src={post.ogImage}
+                    alt=""
+                    loading="lazy"
+                    width={1200}
+                    height={630}
+                  />
                 </div>
-                <h2 className="post-list-heading">{post.title}</h2>
-                {post.subtitle && (
-                  <p className="post-list-subtitle">{post.subtitle}</p>
-                )}
-                <p className="post-list-excerpt">{post.excerpt}</p>
-                <span className="post-list-cta">
-                  Read post
-                  <ArrowRight />
-                </span>
+                <div className="post-card-body">
+                  <div className="post-card-meta">
+                    <time dateTime={post.date}>{formatDate(post.date)}</time>
+                    <span aria-hidden="true">·</span>
+                    <span>{readingTimeMinutes(post.content)} min read</span>
+                  </div>
+                  <h2 className="post-card-title">{post.title}</h2>
+                  <p className="post-card-excerpt">{post.excerpt}</p>
+                  <span className="post-card-cta">
+                    Read post
+                    <ArrowRight />
+                  </span>
+                </div>
               </Link>
             </li>
           ))}

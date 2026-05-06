@@ -1176,34 +1176,56 @@ button {
   margin: 0;
   display: flex;
   flex-direction: column;
-  border-top: 1px solid var(--border);
+  gap: 2rem;
 }
 
 .post-list-item {
-  border-bottom: 1px solid var(--border);
+  /* nothing here — card carries the visual */
 }
 
-.post-list-link {
+.post-card {
   display: block;
-  padding-block: 2rem;
   text-decoration: none;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
   transition:
-    background 0.2s var(--easing),
-    padding 0.2s var(--easing);
-  margin-inline: -1.25rem;
-  padding-inline: 1.25rem;
-  border-radius: var(--radius);
+    transform 0.25s var(--easing),
+    border-color 0.25s var(--easing),
+    box-shadow 0.25s var(--easing);
 }
 
-.post-list-link:hover {
-  background: var(--surface-soft);
+.post-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--border-strong);
+  box-shadow: var(--shadow-md);
 }
 
-.post-list-link:hover .post-list-cta .arrow {
+.post-card:hover .post-card-cta .arrow {
   transform: translateX(4px);
 }
 
-.post-list-meta {
+.post-card-image {
+  width: 100%;
+  aspect-ratio: 1200 / 630;
+  background: var(--surface-soft);
+  overflow: hidden;
+  border-bottom: 1px solid var(--border);
+}
+
+.post-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.post-card-body {
+  padding: 1.75rem 1.75rem 2rem;
+}
+
+.post-card-meta {
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -1215,31 +1237,24 @@ button {
   margin-bottom: 0.75rem;
 }
 
-.post-list-heading {
+.post-card-title {
   font-family: var(--font-display);
   font-weight: 400;
-  font-size: clamp(2rem, 4vw, 2.6rem);
+  font-size: clamp(1.75rem, 3.4vw, 2.3rem);
   line-height: 1.1;
   letter-spacing: -0.018em;
-  margin: 0 0 0.4rem;
+  margin: 0 0 0.65rem;
   color: var(--text);
 }
 
-.post-list-subtitle {
-  font-size: 1.05rem;
-  color: var(--text);
-  font-weight: 500;
-  margin: 0 0 0.75rem;
-}
-
-.post-list-excerpt {
+.post-card-excerpt {
   font-size: 0.98rem;
   color: var(--text-muted);
   line-height: 1.6;
   margin: 0 0 1.25rem;
 }
 
-.post-list-cta {
+.post-card-cta {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
@@ -1248,7 +1263,7 @@ button {
   color: var(--accent);
 }
 
-.post-list-cta .arrow {
+.post-card-cta .arrow {
   transition: transform 0.18s var(--easing);
 }
 
