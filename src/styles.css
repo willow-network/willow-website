@@ -758,8 +758,10 @@ button {
   line-height: 1.6;
   color: var(--text);
   background: var(--surface);
-  overflow-x: auto;
-  white-space: pre;
+  /* Wrap long lines at whitespace instead of triggering horizontal scroll. */
+  white-space: pre-wrap;
+  word-break: normal;
+  overflow-wrap: anywhere;
 }
 
 .how-code-block code {

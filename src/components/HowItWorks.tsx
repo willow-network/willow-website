@@ -1,17 +1,22 @@
 import { type ReactNode } from 'react';
 import { useReveal } from '../lib/useReveal';
 
-const CODE = `import { WillowClient, verifyQueryResponse } from '@willow/sdk';
+const CODE = `import {
+  WillowClient,
+  verifyQueryResponse,
+} from '@willow/sdk';
 
-const client = new WillowClient({ apiUrl: 'https://api.willow.tech' });
+const client = new WillowClient({
+  apiUrl: 'https://api.willow.tech',
+});
 
-// Query a subgrove with a Merkle proof attached
+// Query a subgrove — proof attached
 const result = await client.data.query('yieldnest-vaults', {
   filter: { vault: '0xa1b2...' },
   include_proof: true,
 });
 
-// Verify the proof locally — no trusted indexer in the path
+// Verify locally — no trusted indexer
 const { valid } = await verifyQueryResponse(result);
 
 console.log(valid ? result.data : 'proof failed');`;
