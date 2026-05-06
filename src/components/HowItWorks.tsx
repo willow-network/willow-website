@@ -91,7 +91,7 @@ export default function HowItWorks() {
     <section className="section section--soft" id="how-it-works">
       <div className="container">
         <span className="eyebrow">How it works</span>
-        <h2 className="section-title">Query, verify, ship.</h2>
+        <h2 className="section-title">Index, query, verify.</h2>
         <p className="section-lead">
           Every Willow query returns the data plus a cryptographic proof
           anchored to the chain's consensus state root. Your client verifies
@@ -103,6 +103,17 @@ export default function HowItWorks() {
             <li className="how-step">
               <span className="how-step-num">01</span>
               <div>
+                <h3>Index</h3>
+                <p>
+                  Register a subgrove pointing at a contract. Willow's
+                  indexers continuously decode blockchain events into
+                  structured rows.
+                </p>
+              </div>
+            </li>
+            <li className="how-step">
+              <span className="how-step-num">02</span>
+              <div>
                 <h3>Query</h3>
                 <p>
                   Call the SDK with a subgrove ID and filter. Same shape as
@@ -111,7 +122,7 @@ export default function HowItWorks() {
               </div>
             </li>
             <li className="how-step">
-              <span className="how-step-num">02</span>
+              <span className="how-step-num">03</span>
               <div>
                 <h3>Receive</h3>
                 <p>
@@ -121,7 +132,7 @@ export default function HowItWorks() {
               </div>
             </li>
             <li className="how-step">
-              <span className="how-step-num">03</span>
+              <span className="how-step-num">04</span>
               <div>
                 <h3>Verify</h3>
                 <p>
