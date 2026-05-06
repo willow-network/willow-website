@@ -1,10 +1,9 @@
+import { type ReactNode } from 'react';
 import { useReveal } from '../lib/useReveal';
 
 const CODE = `import { WillowClient, verifyQueryResponse } from '@willow/sdk';
 
-const client = new WillowClient({
-  apiUrl: 'https://api.willow.tech',
-});
+const client = new WillowClient({ apiUrl: 'https://api.willow.tech' });
 
 // Query a subgrove with a Merkle proof attached
 const result = await client.data.query('yieldnest-vaults', {
@@ -15,10 +14,70 @@ const result = await client.data.query('yieldnest-vaults', {
 // Verify the proof locally — no trusted indexer in the path
 const { valid } = await verifyQueryResponse(result);
 
-if (valid) {
-  // Data is provably authentic; safe to use.
-  console.log(result.data);
-}`;
+console.log(valid ? result.data : 'proof failed');`;
+
+const KEYWORDS = new Set([
+  'import',
+  'from',
+  'const',
+  'let',
+  'await',
+  'if',
+  'else',
+  'new',
+  'return',
+  'export',
+  'function',
+  'true',
+  'false',
+  'null',
+  'undefined',
+]);
+
+/** Tiny TS-flavored highlighter. Tokenizes comments, strings, keywords, and
+ *  PascalCase identifiers; everything else falls through as plain text. */
+function highlight(code: string): ReactNode[] {
+  const re =
+    /(\/\/[^\n]*)|('[^'\n]*')|("[^"\n]*")|(\b[a-zA-Z_$][\w$]*\b)|([\s\S])/g;
+  const out: ReactNode[] = [];
+  let m: RegExpExecArray | null;
+  let key = 0;
+  while ((m = re.exec(code)) !== null) {
+    const [, comment, sq, dq, word, other] = m;
+    if (comment) {
+      out.push(
+        <span key={key++} className="tok-c">
+          {comment}
+        </span>,
+      );
+    } else if (sq || dq) {
+      out.push(
+        <span key={key++} className="tok-s">
+          {sq ?? dq}
+        </span>,
+      );
+    } else if (word) {
+      if (KEYWORDS.has(word)) {
+        out.push(
+          <span key={key++} className="tok-k">
+            {word}
+          </span>,
+        );
+      } else if (/^[A-Z]/.test(word)) {
+        out.push(
+          <span key={key++} className="tok-t">
+            {word}
+          </span>,
+        );
+      } else {
+        out.push(word);
+      }
+    } else if (other) {
+      out.push(other);
+    }
+  }
+  return out;
+}
 
 export default function HowItWorks() {
   const ref = useReveal<HTMLDivElement>();
@@ -76,16 +135,10 @@ export default function HowItWorks() {
               <span className="how-code-lang">TypeScript</span>
             </div>
             <pre className="how-code-block">
-              <code>{CODE}</code>
+              <code>{highlight(CODE)}</code>
             </pre>
           </div>
         </div>
-
-        <p className="how-footnote">
-          Underneath: GroveDB Merkle proofs · CometBFT consensus root ·
-          validator-signed state commits. Same primitives, six SDKs
-          (TypeScript · Python · Rust · Go · Swift · React Hooks).
-        </p>
       </div>
     </section>
   );
