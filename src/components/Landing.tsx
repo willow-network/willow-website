@@ -1,5 +1,6 @@
 import GetInvolved from './GetInvolved';
 import Hero from './Hero';
+import HowItWorks from './HowItWorks';
 import Pitch from './Pitch';
 import Showcase from './Showcase';
 import Spokes from './Spokes';
@@ -11,6 +12,7 @@ export default function Landing() {
       <Hero />
       <Pitch />
       <Spokes />
+      <HowItWorks />
       <UseCases />
       <Showcase />
       <GetInvolved />

@@ -4,7 +4,13 @@ import { LINKS } from '../lib/links';
 import { ArrowUpRight } from './Icons';
 import Logo from './Logo';
 
-const SECTION_IDS = ['what', 'pillars', 'showcase', 'get-involved'] as const;
+const SECTION_IDS = [
+  'what',
+  'pillars',
+  'how-it-works',
+  'showcase',
+  'get-involved',
+] as const;
 
 export default function Nav() {
   const [scrolled, setScrolled] = useState(false);
@@ -90,6 +96,7 @@ export default function Nav() {
         <nav className="nav-links" aria-label="Primary">
           <a href={sectionHref('what')} className={sectionClass('what')}>What it is</a>
           <a href={sectionHref('pillars')} className={sectionClass('pillars')}>Capabilities</a>
+          <a href={sectionHref('how-it-works')} className={sectionClass('how-it-works')}>How it works</a>
           <a href={sectionHref('showcase')} className={sectionClass('showcase')}>Showcase</a>
           <a href={sectionHref('get-involved')} className={sectionClass('get-involved')}>Get involved</a>
           <NavLink
