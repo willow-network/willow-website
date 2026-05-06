@@ -134,9 +134,6 @@ export default function HowItWorks() {
 
           <div className="how-code">
             <div className="how-code-bar">
-              <span className="how-code-dot" />
-              <span className="how-code-dot" />
-              <span className="how-code-dot" />
               <span className="how-code-lang">TypeScript</span>
             </div>
             <pre className="how-code-block">
