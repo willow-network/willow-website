@@ -13,14 +13,14 @@ export const TEAM: TeamMember[] = [
     name: 'Paul DeLucia',
     title: 'Founder & CEO',
     bio: 'Lead researcher on the cryptographic database powering Willow. Core contributor to Dash blockchain.',
-    photo: null,
+    photo: '/team/paul.png',
   },
   {
     slug: 'eric-gleeson',
     name: 'Eric Gleeson',
     title: 'Co-Founder & COO',
     bio: '10+ years in operations with direct relationships to institutional finance leaders. Driving GTM and partnerships.',
-    photo: null,
+    photo: '/team/eric.jpeg',
   },
   {
     slug: 'wisdom-ogwu',
@@ -34,14 +34,14 @@ export const TEAM: TeamMember[] = [
     name: 'Pavel Burylichev',
     title: 'Founding Engineer',
     bio: 'Former contributor to The Graph. Senior distributed systems architect.',
-    photo: null,
+    photo: '/team/pavel.jpeg',
   },
   {
     slug: 'kevin-obrien',
     name: "Kevin O'Brien",
     title: 'Founding Investor & Accelerator',
     bio: 'Founder, Verdicti Ventures (Venture Accelerator). Venture partner at RockTree Capital.',
-    photo: null,
+    photo: '/team/kevin.png',
   },
 ];
 
