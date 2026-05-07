@@ -81,8 +81,8 @@ export default function Footer() {
                 <a href={LINKS.emailPartners}>Partners</a>
               </li>
               <li>
-                <a href={LINKS.calendly} target="_blank" rel="noreferrer">
-                  Book a call
+                <a href={LINKS.requestCall} target="_blank" rel="noreferrer">
+                  Request a call
                 </a>
               </li>
               <li>

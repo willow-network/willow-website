@@ -5,7 +5,7 @@ This Privacy Policy describes how Willow Core, Inc. ("Willow", "we", "us") handl
 ### Information you provide
 
 - **Email address.** When you subscribe to our newsletter or fill out a contact form, we collect your email address (and any other fields you choose to fill in). Form submissions are processed through HubSpot.
-- **Direct communications.** When you email us at info@willow.tech or book a call via Calendly, we receive whatever information you choose to send.
+- **Direct communications.** When you email us at info@willow.tech or submit a call request through our intake form, we receive whatever information you choose to send.
 
 ### Information collected automatically
 
@@ -32,7 +32,8 @@ The following third-party services receive information from this site, or from y
 - **[HubSpot](https://legal.hubspot.com/privacy-policy)** — newsletter and contact form processing
 - **[Umami Cloud](https://umami.is/privacy)** — privacy-respecting analytics
 - **[Cloudflare](https://www.cloudflare.com/privacypolicy/)** — hosting and edge delivery
-- **[Calendly](https://calendly.com/privacy)** — meeting scheduling, only when you click a "Book a call" link
+- **[Tally](https://tally.so/help/data-protection-privacy)** — processes call-request form submissions
+- **[Calendly](https://calendly.com/privacy)** — meeting scheduling, used only after we send you a private booking link in response to a call request
 
 ## Cookies
 

@@ -2,7 +2,7 @@ export const LINKS = {
   explorer: 'https://explorer.willow.tech',
   yieldnest: 'https://yieldnest.willow.tech',
   discord: 'https://discord.gg/BrrA56x24f',
-  calendly: 'https://calendly.com/deluciapaul',
+  requestCall: 'https://tally.so/r/Me8BqM',
   email: 'info@willow.tech',
   emailHref: 'mailto:info@willow.tech',
   emailPartners:

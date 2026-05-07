@@ -47,14 +47,14 @@ export default function GetInvolved() {
 
           <article className="pillar">
             <span className="pillar-tag">Partners</span>
-            <h3>Book a call</h3>
+            <h3>Request a call</h3>
             <p>
               Working with protocols and teams that want verified
               dashboards, custom indexing, or dedicated infrastructure on
               Willow. Bring your data, we'll help you ship.
             </p>
-            <a href={LINKS.calendly} target="_blank" rel="noreferrer">
-              Book a call
+            <a href={LINKS.requestCall} target="_blank" rel="noreferrer">
+              Request a call
               <ArrowUpRight />
             </a>
             <a

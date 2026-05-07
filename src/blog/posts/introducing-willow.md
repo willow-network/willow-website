@@ -62,7 +62,7 @@ Three doors, depending on where you fit:
 
 **Community** — join us in [Discord](https://discord.gg/BrrA56x24f). Early users, contributors, and partners hang out there. Ask questions, share what you're building, get direct access to the team.
 
-**Partners** — we work with protocols and teams that want verified dashboards, custom indexing, or dedicated infrastructure on Willow. Bring the data you care about; we'll help you ship. [Book a call](https://calendly.com/deluciapaul) or email us at [info@willow.tech](mailto:info@willow.tech).
+**Partners** — we work with protocols and teams that want verified dashboards, custom indexing, or dedicated infrastructure on Willow. Bring the data you care about; we'll help you ship. [Request a call](https://tally.so/r/Me8BqM) or email us at [info@willow.tech](mailto:info@willow.tech).
 
 ---
 

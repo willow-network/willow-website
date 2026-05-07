@@ -126,8 +126,8 @@ export default function BlogPost() {
               Try the Explorer
               <ArrowUpRight />
             </a>
-            <a href={LINKS.calendly} className="btn btn--secondary" target="_blank" rel="noreferrer">
-              Book a call
+            <a href={LINKS.requestCall} className="btn btn--secondary" target="_blank" rel="noreferrer">
+              Request a call
               <ArrowUpRight />
             </a>
           </div>

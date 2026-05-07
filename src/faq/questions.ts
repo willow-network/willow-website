@@ -45,6 +45,6 @@ export const FAQ: FAQItem[] = [
   },
   {
     q: 'How do I get started?',
-    a: 'Open the [Explorer](https://explorer.willow.tech), register a subgrove, and point it at a contract you care about. SDKs are available in six languages plus a LangChain integration. If you want help wiring it into something specific, [book a call](https://calendly.com/deluciapaul).',
+    a: 'Open the [Explorer](https://explorer.willow.tech), register a subgrove, and point it at a contract you care about. SDKs are available in six languages plus a LangChain integration. If you want help wiring it into something specific, [request a call](https://tally.so/r/Me8BqM).',
   },
 ];
