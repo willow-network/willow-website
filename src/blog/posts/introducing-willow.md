@@ -10,7 +10,7 @@ Crypto promised a world where verification replaced trust. But somewhere between
 
 The same is true off-chain. Storing structured records — compliance logs, agent memory, vault stats — the only thing tying them to reality is the operator's word. Serving files — model weights, training data, content moderation rules — there's no built-in way to prove the bytes the user got match the bytes you uploaded.
 
-Willow closes that gap. Not just for one of those things. For all three.
+Willow closes that gap.
 
 ## What Willow does
 
@@ -49,7 +49,7 @@ These aren't speculative use cases. They're what early users are already buildin
 A few priorities over the next few months:
 
 - Wider chain coverage on the indexer
-- A managed offering so teams can ship without operating their own nodes
+- A production-ready managed offering, with SLAs, dashboards, and per-app billing
 - More partner deployments like YieldNest, on dedicated subdomains
 
 We've been heads-down for a while. Today is when we start telling people.
