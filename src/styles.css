@@ -2060,6 +2060,188 @@ button {
 }
 
 /* ============================================================
+   Explained page
+   ============================================================ */
+
+.explain-hero {
+  padding-top: clamp(2rem, 4vw, 2.75rem);
+  padding-bottom: clamp(1.5rem, 3vw, 2rem);
+}
+
+.explain-section {
+  padding-block: clamp(2.5rem, 5vw, 4rem);
+}
+
+.explain-container {
+  max-width: 720px;
+}
+
+.explain-title {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(2.4rem, 5vw, 3.4rem);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  margin: 0 0 0.85rem;
+  color: var(--text);
+}
+
+.explain-title em {
+  font-style: italic;
+  color: var(--accent);
+}
+
+.explain-lead {
+  font-size: clamp(1.05rem, 1.4vw, 1.18rem);
+  color: var(--text-muted);
+  margin: 0;
+  line-height: 1.55;
+}
+
+.explain-h2 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(1.7rem, 3vw, 2.2rem);
+  line-height: 1.1;
+  letter-spacing: -0.015em;
+  margin: 0 0 1.1rem;
+  color: var(--text);
+}
+
+.explain-p {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--text-muted);
+  margin: 0 0 1.1rem;
+  max-width: 60ch;
+}
+
+.explain-p:last-child {
+  margin-bottom: 0;
+}
+
+.explain-p strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.explain-p--lead {
+  color: var(--text);
+  font-size: 1.12rem;
+  margin-bottom: 2rem;
+}
+
+.explain-inline-link {
+  color: var(--accent);
+  border-bottom: 1px solid color-mix(in srgb, var(--accent) 35%, transparent);
+  transition:
+    color 0.15s var(--easing),
+    border-color 0.15s var(--easing);
+}
+
+.explain-inline-link:hover {
+  color: var(--accent-hover);
+  border-bottom-color: var(--accent);
+}
+
+.explain-things {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+.explain-thing {
+  display: grid;
+  grid-template-columns: 56px 1fr;
+  gap: 1.25rem;
+  align-items: start;
+}
+
+.explain-thing-num {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  letter-spacing: 0.06em;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 28px;
+  width: 36px;
+  background: var(--accent-soft);
+  border-radius: 999px;
+  color: var(--accent-strong);
+}
+
+.explain-thing h3 {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 1.15rem;
+  letter-spacing: -0.01em;
+  margin: 0 0 0.4rem;
+  color: var(--text);
+}
+
+.explain-thing p {
+  font-size: 1rem;
+  color: var(--text-muted);
+  margin: 0;
+  line-height: 1.65;
+}
+
+.explain-matters {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.explain-matters li {
+  border-left: 2px solid var(--accent-soft);
+  padding-left: 1.1rem;
+}
+
+.explain-matters h3 {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 1.05rem;
+  letter-spacing: -0.005em;
+  margin: 0 0 0.35rem;
+  color: var(--text);
+}
+
+.explain-matters p {
+  font-size: 1rem;
+  color: var(--text-muted);
+  margin: 0;
+  line-height: 1.65;
+}
+
+.explain-cta-row {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+@media (max-width: 420px) {
+  .explain-cta-row {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+  }
+  .explain-cta-row .btn {
+    justify-content: center;
+    width: 100%;
+  }
+}
+
+/* ============================================================
    Reveal-on-scroll
    ============================================================ */
 

@@ -12,6 +12,7 @@ const BlogPost = lazy(() => import('./components/BlogPost'));
 const LegalPage = lazy(() => import('./components/LegalPage'));
 const TeamPage = lazy(() => import('./components/TeamPage'));
 const FAQPage = lazy(() => import('./components/FAQPage'));
+const Explained = lazy(() => import('./components/Explained'));
 
 /** Scrolls to top on route change, or to the hash anchor if one is present. */
 function ScrollManager() {
@@ -45,6 +46,7 @@ export default function App() {
             <Route path="/blog/:slug" element={<BlogPost />} />
             <Route path="/team" element={<TeamPage />} />
             <Route path="/faq" element={<FAQPage />} />
+            <Route path="/explained" element={<Explained />} />
             <Route path="/privacy" element={<LegalPage slug="privacy" />} />
             <Route path="/terms" element={<LegalPage slug="terms" />} />
             <Route path="*" element={<NotFound />} />

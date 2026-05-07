@@ -72,6 +72,9 @@ export default function Footer() {
                 <Link to="/team">Team</Link>
               </li>
               <li>
+                <Link to="/explained">Plain English</Link>
+              </li>
+              <li>
                 <Link to="/faq">FAQ</Link>
               </li>
               <li>
