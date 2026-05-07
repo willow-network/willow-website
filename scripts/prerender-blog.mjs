@@ -1,10 +1,14 @@
 /**
- * Post-build step: emit a per-post static HTML file under dist/blog/{slug}/
- * with post-specific OG tags so social crawlers (X, LinkedIn, Slack, etc.)
- * see the right card. Cloudflare Pages serves these static files in
- * preference to the SPA fallback. React Router then hydrates as normal.
+ * Post-build step: emit per-route static HTML files under dist/{path}/index.html
+ * with route-specific OG / Twitter / title / description tags so social
+ * crawlers (X, LinkedIn, Slack, Telegram, etc.) see the right card.
  *
- * Source of truth for post metadata: src/blog/posts.json
+ * Cloudflare Pages serves these static files in preference to the SPA
+ * fallback. React Router then hydrates as normal.
+ *
+ * Sources of truth:
+ *   - Blog post metadata: src/blog/posts.json
+ *   - Static page metadata: STATIC_PAGES const below
  */
 import { readFileSync, writeFileSync, mkdirSync, readdirSync } from 'node:fs';
 import { resolve, dirname } from 'node:path';
@@ -12,10 +16,43 @@ import { fileURLToPath } from 'node:url';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const SITE_URL = 'https://willow.tech';
+const DEFAULT_OG_IMAGE = `${SITE_URL}/og-image.png`;
 
 const posts = JSON.parse(
   readFileSync(resolve(ROOT, 'src/blog/posts.json'), 'utf8'),
 );
+
+// Non-blog routes that need their own OG cards. The landing page (/) keeps
+// the defaults baked into index.html — only routes that should preview
+// differently from the homepage go here.
+const STATIC_PAGES = [
+  {
+    path: 'explained',
+    title: 'Willow, in plain English — Willow',
+    description:
+      'What Willow does, no jargon. Every piece of data comes with a mathematical seal anyone can check — by you, your phone, or an AI agent.',
+    sitemap: { changefreq: 'monthly', priority: '0.7' },
+  },
+  {
+    path: 'blog',
+    title: 'Blog — Willow',
+    description:
+      'Notes from the team building Willow — verifiable data infrastructure, on-chain indexing, and what comes next.',
+    // Already in the sitemap explicitly below; no entry needed here.
+  },
+  {
+    path: 'team',
+    title: 'Team — Willow',
+    description:
+      'The people building Willow — researchers, distributed-systems engineers, and operators shipping verifiable data infrastructure.',
+  },
+  {
+    path: 'faq',
+    title: 'FAQ — Willow',
+    description:
+      "Common questions about Willow — what it does, how it works, who it's for.",
+  },
+];
 
 // --- inject font preloads --------------------------------------------------
 // @fontsource bundles a woff2 per (family, subset, weight, style). For English
@@ -69,70 +106,79 @@ function replaceTag(html, pattern, replacement) {
   return html.replace(pattern, replacement);
 }
 
+// Apply the full set of title / description / OG / Twitter tags. Used by
+// every prerendered page so they all stay in sync — the only thing the old
+// /blog block was missing (and the source of "blog has no custom OG card").
+function applyMeta(html, { url, title, description, ogImage, type }) {
+  const titleAttr = escapeAttr(title);
+  const descAttr = escapeAttr(description);
+
+  const replacements = [
+    [/<title>[^<]*<\/title>/, `<title>${titleAttr}</title>`],
+    [
+      /<meta\s+name="description"\s+content="[^"]*"\s*\/>/,
+      `<meta name="description" content="${descAttr}" />`,
+    ],
+    [
+      /<meta\s+property="og:title"\s+content="[^"]*"\s*\/>/,
+      `<meta property="og:title" content="${titleAttr}" />`,
+    ],
+    [
+      /<meta\s+property="og:description"\s+content="[^"]*"\s*\/>/,
+      `<meta property="og:description" content="${descAttr}" />`,
+    ],
+    [
+      /<meta\s+property="og:type"\s+content="[^"]*"\s*\/>/,
+      `<meta property="og:type" content="${type}" />`,
+    ],
+    [
+      /<meta\s+property="og:url"\s+content="[^"]*"\s*\/>/,
+      `<meta property="og:url" content="${url}" />`,
+    ],
+    [
+      /<meta\s+property="og:image"\s+content="[^"]*"\s*\/>/,
+      `<meta property="og:image" content="${ogImage}" />`,
+    ],
+    [
+      /<meta\s+property="og:image:alt"\s+content="[^"]*"\s*\/>/,
+      `<meta property="og:image:alt" content="${titleAttr}" />`,
+    ],
+    [
+      /<meta\s+name="twitter:image"\s+content="[^"]*"\s*\/>/,
+      `<meta name="twitter:image" content="${ogImage}" />`,
+    ],
+    [
+      /<meta\s+name="twitter:title"\s+content="[^"]*"\s*\/>/,
+      `<meta name="twitter:title" content="${titleAttr}" />`,
+    ],
+    [
+      /<meta\s+name="twitter:description"\s+content="[^"]*"\s*\/>/,
+      `<meta name="twitter:description" content="${descAttr}" />`,
+    ],
+    [
+      /<meta\s+name="twitter:url"\s+content="[^"]*"\s*\/>/,
+      `<meta name="twitter:url" content="${url}" />`,
+    ],
+  ];
+
+  for (const [pattern, replacement] of replacements) {
+    html = replaceTag(html, pattern, replacement);
+  }
+  return html;
+}
+
 function renderPostHtml(post) {
   const url = `${SITE_URL}/blog/${post.slug}`;
   const fullTitle = `${post.title} — Willow`;
-  const description = escapeAttr(post.excerpt);
-  const titleAttr = escapeAttr(fullTitle);
   const ogImage = `${SITE_URL}${post.ogImage}`;
 
-  let html = indexHtml;
-  html = replaceTag(html, /<title>[^<]*<\/title>/, `<title>${titleAttr}</title>`);
-  html = replaceTag(
-    html,
-    /<meta\s+name="description"\s+content="[^"]*"\s*\/>/,
-    `<meta name="description" content="${description}" />`,
-  );
-  html = replaceTag(
-    html,
-    /<meta\s+property="og:title"\s+content="[^"]*"\s*\/>/,
-    `<meta property="og:title" content="${titleAttr}" />`,
-  );
-  html = replaceTag(
-    html,
-    /<meta\s+property="og:description"\s+content="[^"]*"\s*\/>/,
-    `<meta property="og:description" content="${description}" />`,
-  );
-  html = replaceTag(
-    html,
-    /<meta\s+property="og:type"\s+content="[^"]*"\s*\/>/,
-    `<meta property="og:type" content="article" />`,
-  );
-  html = replaceTag(
-    html,
-    /<meta\s+property="og:url"\s+content="[^"]*"\s*\/>/,
-    `<meta property="og:url" content="${url}" />`,
-  );
-  html = replaceTag(
-    html,
-    /<meta\s+property="og:image"\s+content="[^"]*"\s*\/>/,
-    `<meta property="og:image" content="${ogImage}" />`,
-  );
-  html = replaceTag(
-    html,
-    /<meta\s+property="og:image:alt"\s+content="[^"]*"\s*\/>/,
-    `<meta property="og:image:alt" content="${titleAttr}" />`,
-  );
-  html = replaceTag(
-    html,
-    /<meta\s+name="twitter:image"\s+content="[^"]*"\s*\/>/,
-    `<meta name="twitter:image" content="${ogImage}" />`,
-  );
-  html = replaceTag(
-    html,
-    /<meta\s+name="twitter:title"\s+content="[^"]*"\s*\/>/,
-    `<meta name="twitter:title" content="${titleAttr}" />`,
-  );
-  html = replaceTag(
-    html,
-    /<meta\s+name="twitter:description"\s+content="[^"]*"\s*\/>/,
-    `<meta name="twitter:description" content="${description}" />`,
-  );
-  html = replaceTag(
-    html,
-    /<meta\s+name="twitter:url"\s+content="[^"]*"\s*\/>/,
-    `<meta name="twitter:url" content="${url}" />`,
-  );
+  let html = applyMeta(indexHtml, {
+    url,
+    title: fullTitle,
+    description: post.excerpt,
+    ogImage,
+    type: 'article',
+  });
 
   // Inject article schema for richer search snippets
   const articleSchema = `<script type="application/ld+json">${JSON.stringify({
@@ -151,43 +197,44 @@ function renderPostHtml(post) {
   return html;
 }
 
-let count = 0;
+// --- prerender blog posts --------------------------------------------------
+
+let postCount = 0;
 for (const post of posts) {
   const dir = resolve(ROOT, 'dist/blog', post.slug);
   mkdirSync(dir, { recursive: true });
-  const html = renderPostHtml(post);
-  writeFileSync(resolve(dir, 'index.html'), html);
+  writeFileSync(resolve(dir, 'index.html'), renderPostHtml(post));
   console.log(`  prerendered: blog/${post.slug}/index.html`);
-  count++;
+  postCount++;
 }
 
-// Also generate a static dist/blog/index.html so the listing page has a real
-// HTML file (otherwise it'd only be reachable via SPA fallback).
-const blogIndexDir = resolve(ROOT, 'dist/blog');
-mkdirSync(blogIndexDir, { recursive: true });
-let blogIndexHtml = indexHtml;
-blogIndexHtml = blogIndexHtml.replace(
-  /<title>[^<]*<\/title>/,
-  '<title>Blog — Willow</title>',
-);
-blogIndexHtml = blogIndexHtml.replace(
-  /<meta\s+property="og:title"\s+content="[^"]*"\s*\/>/,
-  '<meta property="og:title" content="Blog — Willow" />',
-);
-blogIndexHtml = blogIndexHtml.replace(
-  /<meta\s+property="og:url"\s+content="[^"]*"\s*\/>/,
-  `<meta property="og:url" content="${SITE_URL}/blog" />`,
-);
-writeFileSync(resolve(blogIndexDir, 'index.html'), blogIndexHtml);
-console.log(`  prerendered: blog/index.html`);
+// --- prerender static pages ------------------------------------------------
 
-console.log(`✓ prerender done (${count} post${count === 1 ? '' : 's'})`);
+for (const page of STATIC_PAGES) {
+  const url = `${SITE_URL}/${page.path}`;
+  const html = applyMeta(indexHtml, {
+    url,
+    title: page.title,
+    description: page.description,
+    ogImage: DEFAULT_OG_IMAGE,
+    type: 'website',
+  });
+  const dir = resolve(ROOT, 'dist', page.path);
+  mkdirSync(dir, { recursive: true });
+  writeFileSync(resolve(dir, 'index.html'), html);
+  console.log(`  prerendered: ${page.path}/index.html`);
+}
+
+console.log(
+  `✓ prerender done (${postCount} post${postCount === 1 ? '' : 's'}, ${STATIC_PAGES.length} static pages)`,
+);
 
 // --- sitemap.xml -----------------------------------------------------------
 
 const today = new Date().toISOString().slice(0, 10);
 const urls = [
   { loc: SITE_URL + '/', changefreq: 'monthly', priority: '1.0', lastmod: today },
+  { loc: SITE_URL + '/explained', changefreq: 'monthly', priority: '0.7', lastmod: today },
   { loc: SITE_URL + '/blog', changefreq: 'weekly', priority: '0.8', lastmod: today },
   ...posts.map((p) => ({
     loc: `${SITE_URL}/blog/${p.slug}`,
@@ -203,10 +250,7 @@ const urls = [
 
 const sitemap = [
   '<?xml version="1.0" encoding="UTF-8"?>',
-  '<urlset xmlns="http://www.sitemap.org/schemas/sitemap/0.9">'.replace(
-    'sitemap.org',
-    'sitemaps.org',
-  ),
+  '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
   ...urls.map(
     (u) =>
       `  <url>\n` +
