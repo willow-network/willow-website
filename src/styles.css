@@ -569,6 +569,34 @@ button {
   margin-bottom: 0;
 }
 
+.pitch-explain {
+  margin-top: 1.75rem !important;
+  font-size: 0.98rem;
+}
+
+.pitch-explain-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--accent);
+  font-weight: 500;
+  transition: color 0.15s var(--easing);
+}
+
+.pitch-explain-link:hover {
+  color: var(--accent-hover);
+}
+
+.pitch-explain-link .arrow {
+  width: 16px;
+  height: 16px;
+  transition: transform 0.18s var(--easing);
+}
+
+.pitch-explain-link:hover .arrow {
+  transform: translateX(3px);
+}
+
 /* ============================================================
    Spokes (cards)
    ============================================================ */

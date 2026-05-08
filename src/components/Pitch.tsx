@@ -1,4 +1,6 @@
+import { Link } from 'react-router-dom';
 import { useReveal } from '../lib/useReveal';
+import { ArrowRight } from './Icons';
 
 export default function Pitch() {
   const ref = useReveal<HTMLDivElement>();
@@ -30,6 +32,12 @@ export default function Pitch() {
             <p>
               No trusted indexer. No invisible transformations. Just data,
               with the receipts to back it up.
+            </p>
+            <p className="pitch-explain">
+              <Link to="/explained" className="pitch-explain-link">
+                Want this in plain English?
+                <ArrowRight />
+              </Link>
             </p>
           </div>
         </div>
