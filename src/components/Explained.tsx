@@ -28,7 +28,7 @@ export default function Explained() {
               Willow, in <em>plain English</em>.
             </h1>
             <p className="explain-lead">
-              A friends-and-family explainer. No jargon. Promise.
+              A friends-and-family explainer. No jargon.
             </p>
           </div>
         </div>
