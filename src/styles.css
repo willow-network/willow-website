@@ -1192,7 +1192,15 @@ button {
    ============================================================ */
 
 .footer {
-  background: var(--surface-deep);
+  /* Footer-scoped color overrides. The forest-green slab is lighter than
+     --surface-deep, so muted text, hover accents, and section borders need
+     to brighten to keep contrast. Keeps the change from leaking into other
+     `var(--surface-deep)` consumers (e.g. blog code blocks). */
+  --footer-muted: #d2e1d8;
+  --footer-border: rgba(244, 246, 241, 0.18);
+  --footer-link-hover: #a9d6bc;
+
+  background: var(--accent-strong);
   color: var(--text-on-deep);
   padding-block: clamp(3rem, 6vw, 5rem) 2rem;
 }
@@ -1202,7 +1210,7 @@ button {
   grid-template-columns: 1.5fr 1fr 1fr 1fr;
   gap: 2rem;
   padding-bottom: 3rem;
-  border-bottom: 1px solid var(--border-on-deep);
+  border-bottom: 1px solid var(--footer-border);
 }
 
 @media (max-width: 820px) {
@@ -1222,7 +1230,7 @@ button {
 }
 
 .footer-brand p {
-  color: var(--text-on-deep-muted);
+  color: var(--footer-muted);
   font-size: 0.92rem;
   line-height: 1.6;
   max-width: 32ch;
@@ -1234,7 +1242,7 @@ button {
   font-weight: 500;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--text-on-deep-muted);
+  color: var(--footer-muted);
   margin: 0 0 1rem;
   font-family: var(--font-mono);
 }
@@ -1255,7 +1263,7 @@ button {
 }
 
 .footer-col a:hover {
-  color: var(--accent);
+  color: var(--footer-link-hover);
 }
 
 .footer-bottom {
@@ -1264,7 +1272,7 @@ button {
   justify-content: space-between;
   padding-top: 2rem;
   font-size: 0.85rem;
-  color: var(--text-on-deep-muted);
+  color: var(--footer-muted);
   flex-wrap: wrap;
   gap: 1rem;
 }
@@ -1278,11 +1286,11 @@ button {
   width: 36px;
   height: 36px;
   border-radius: 999px;
-  border: 1px solid var(--border-on-deep);
+  border: 1px solid var(--footer-border);
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  color: var(--text-on-deep-muted);
+  color: var(--footer-muted);
   transition:
     color 0.15s var(--easing),
     border-color 0.15s var(--easing),
@@ -1291,8 +1299,8 @@ button {
 
 .footer-socials a:hover {
   color: var(--text-on-deep);
-  border-color: var(--text-on-deep-muted);
-  background: rgba(255, 255, 255, 0.04);
+  border-color: var(--footer-muted);
+  background: rgba(255, 255, 255, 0.06);
 }
 
 /* ============================================================
