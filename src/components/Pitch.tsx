@@ -35,7 +35,7 @@ export default function Pitch() {
             </p>
             <p className="pitch-explain">
               <Link to="/explained" className="pitch-explain-link">
-                Want this in plain English?
+                Not a developer? Read the plain-English version.
                 <ArrowRight />
               </Link>
             </p>
