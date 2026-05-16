@@ -92,18 +92,6 @@ export default function Explained() {
             <li className="explain-thing">
               <span className="explain-thing-num">01</span>
               <div>
-                <h3>It watches blockchains.</h3>
-                <p>
-                  Blockchains are the public record-books behind crypto —
-                  Bitcoin, Ethereum, and others. Willow reads what happens
-                  on them and turns it into something apps can use, with a
-                  seal proving every line came from the real chain.
-                </p>
-              </div>
-            </li>
-            <li className="explain-thing">
-              <span className="explain-thing-num">02</span>
-              <div>
                 <h3>It stores records.</h3>
                 <p>
                   Like rows in a spreadsheet — a list of customers, scores,
@@ -114,13 +102,25 @@ export default function Explained() {
               </div>
             </li>
             <li className="explain-thing">
-              <span className="explain-thing-num">03</span>
+              <span className="explain-thing-num">02</span>
               <div>
                 <h3>It stores files.</h3>
                 <p>
                   Photos, PDFs, videos. Same idea: every file comes with a
                   seal proving it's the same file that was uploaded, byte
                   for byte.
+                </p>
+              </div>
+            </li>
+            <li className="explain-thing">
+              <span className="explain-thing-num">03</span>
+              <div>
+                <h3>It watches blockchains.</h3>
+                <p>
+                  Blockchains are the public record-books behind crypto —
+                  Bitcoin, Ethereum, and others. Willow reads what happens
+                  on them and turns it into something apps can use, with a
+                  seal proving every line came from the real chain.
                 </p>
               </div>
             </li>
